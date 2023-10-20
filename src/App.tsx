@@ -1,23 +1,18 @@
-import { useEffect } from 'react';
-import './App.css';
-import axios, { AxiosResponse } from 'axios';
-import { urlCinema } from './endpoints';
+import {BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
+import Header from "./components/Header/Header";
+import MoviePage from "./pages/Movie/Movie";
+import CinemaTheaterPage from "./pages/CinemaTheater/CinemaTheater";
 
 function App() {
-
-  useEffect(() => {
-    axios.get(urlCinema)
-      .then((response: AxiosResponse<any>) => {
-      console.log(response.data);
-    })
-  }, [])
-
   return (
-    <>
-    <div>
-      <h1>Haik pidor</h1>
-    </div>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Header />} />
+        <Route path="/movies" element={<MoviePage />} />
+        <Route path="/cinema-theaters" element={<CinemaTheaterPage />} />
+      </Routes>
+    </Router>
   );
 }
 
