@@ -1,0 +1,28 @@
+@import "../../../styles/Variables.module.scss";
+@import "../../../styles/Fonts.module.scss";
+
+.shoppingCart {
+  position: relative;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  #shoppingCartIcon {
+    font-size: 25px;
+    color: $text-color;
+    transition: color 0.3s;
+    &:hover {
+      color: $primary-color;
+    }
+  }
+  .itemCount {
+    position: absolute;
+    background-color: $secondary-color;
+    color: $text-color;
+    font-size: 12px;
+    font-family: $Noto-Sans-Bold;
+    border-radius: 50%;
+    padding: 2px 6px;
+    top: -5px;
+    right: -5px;
+  }
+}

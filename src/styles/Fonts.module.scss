@@ -1,0 +1,8 @@
+$fontUrlUbuntu: "https://fonts.googleapis.com/css2?family=Ubuntu&display=swap";
+$fontUrlNotoSans: "https://fonts.googleapis.com/css2?family=Noto+Sans:wght@800&display=swap";
+
+@import url($fontUrlUbuntu);
+@import url($fontUrlNotoSans);
+
+$Ubuntu-Regular: "Ubuntu", sans-serif;
+$Noto-Sans-Bold: "Noto Sans", sans-serif;

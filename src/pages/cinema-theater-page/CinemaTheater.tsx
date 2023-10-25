@@ -1,7 +1,9 @@
+import "./CinemaTheater.scss"
+
 const CinemaTheater = () => {
     return (
-      <div>
-        
+      <div className="ss">
+        scfsdfsadfdsa
       </div>
     );
   };
