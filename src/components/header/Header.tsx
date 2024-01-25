@@ -10,8 +10,10 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <header className={styles.header}>
-      <div className={styles.ss}>
-        <img src={logo} width={100} height={40} />
+      <div className={styles.logoNavLinks}>
+        <Link to="">
+          <img src={logo} className={styles.logo} />
+        </Link>
         <nav>
           <ul className={styles.navLinks}>
             <li>

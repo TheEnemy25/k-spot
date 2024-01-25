@@ -1,5 +1,7 @@
 import styles from "./Main.module.scss";
 
+import axios from "axios";
+
 const Main = () => {
   return (
     <main className={styles.main}>
