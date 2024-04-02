@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import styles from "./Location.module.scss";
-import LocationMenu from "./LocationMenu";
 
 const Location = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -12,11 +11,10 @@ const Location = () => {
 
   return (
     <div className={styles.location}>
-      <a href="#" onClick={toggleMenu}>
+      <button type="button" onClick={toggleMenu}>
         <FaMapMarkerAlt id={styles.locationIcon} />
         <p>Forum</p>
-      </a>
-      {menuOpen && <LocationMenu />}
+      </button>
     </div>
   );
 };

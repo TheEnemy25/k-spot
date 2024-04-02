@@ -109,6 +109,7 @@ video {
   font-size: 100%;
   vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -156,15 +157,15 @@ table {
 }
 
 ::-webkit-scrollbar-track {
-  background: #000; /* Чорний колір для фону скролбару */
+  background: #000;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333; /* Темний сірий або інший відтінок чорного */
+  background: #333;
   border-radius: 8px;
-  border: 1px solid #000; /* Чорний колір рамки скролбару */
+  border: 1px solid #000;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #666; /* Світлий сірий для підсвічування при наведенні */
+  background: #666;
 }

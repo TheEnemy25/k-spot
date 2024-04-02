@@ -12,10 +12,8 @@ const ShoppingCart = () => {
 
   return (
     <div className={styles.shoppingCart}>
-      <Link to="">
         <FaShoppingCart id={styles.shoppingCartIcon} />
         <span className={styles.itemCount}>{itemCount}</span>
-      </Link>
     </div>
   );
 };

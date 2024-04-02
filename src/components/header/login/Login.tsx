@@ -5,9 +5,7 @@ import { Link } from "react-router-dom";
 const Login = () => {
   return (
     <div className={styles.login}>
-      <Link to="#" onClick={() => alert("Увійти")}>
         Sign in
-      </Link>
     </div>
   );
 };

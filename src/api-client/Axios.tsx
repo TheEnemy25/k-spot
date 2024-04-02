@@ -6,50 +6,49 @@ import StorageManager from "./utils/StorageManager";
 const Axios = axios.create({ timeout: 20000 });
 
 Axios.interceptors.request.use(
-  async (config) => {
-    try {
-      const token = await StorageManager.getToken();
+//   async (req) => {
+//       const expireTime = await StorageManager.getTokenExpireTime();
+      
+//       if (expireTime !== null) {
+//           const tokenExpireTime = typeof expireTime === 'number' ? expireTime.toString() : expireTime;
 
-      if (token) {
-        config.headers.Authorization = `Bearer ${token}`;
-      }
+//           if (Date.now() > Date.parse(tokenExpireTime)) {
+//               const RefreshToken = await StorageManager.getRefreshToken();
+//               const Token = await StorageManager.getToken();
+              
+//               try {
+//                   const res = await axios.post(
+//                       APIRoutes.getAuthenticationUrl() + "refresh",
+//                       { RefreshToken, Token }
+//                   );
+                  
+//                   let result: AuthenticationResult = res.data;
+//                   StorageManager.setAuthData(result);
+//               } catch (error) {
+//                   console.error('Error refreshing token:', error);
+//                   throw error;
+//               }
+//           }
 
-      const tokenExpireTime = await StorageManager.getTokenExpireTime();
-      const isTokenExpired =
-        Date.now() > Date.parse(tokenExpireTime?.toString() ?? "");
+//           const token = await StorageManager.getToken();
 
-      if (isTokenExpired) {
-        const refreshToken = await StorageManager.getRefreshToken();
-        const { data } = await Axios.post(
-          APIRoutes.getAuthenticationUrl() + "refresh",
-          { refreshToken, token }
-        );
+//           if (token) {
+//               req.headers.Authorization = "Bearer " + token;
+//           }
+//       }
 
-        const result: AuthenticationResult = data;
-        StorageManager.setAuthData(result);
-      }
+//       return req;
+//   },
 
-      return config;
-    } catch (error) {
-      console.error("Error processing Axios request:", error);
-      return Promise.reject(error);
-    }
-  },
-  (error) => Promise.reject(error)
+//   async (error) => {
+//       return Promise.reject(error);
+//   }
 );
 
 Axios.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    console.error("Axios response error:", error);
-
-    if (error.response && error.response.status === 401) {
-      // Обробка несанкціонованого доступу, наприклад, перенаправлення на сторінку входу.
-      // Тут ви можете визначити власний обробник помилок.
-    }
-
-    return Promise.reject(error);
-  }
+  (response) => {
+      return response;
+  },
 );
 
 export default Axios;

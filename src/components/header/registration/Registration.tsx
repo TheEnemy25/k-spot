@@ -5,9 +5,7 @@ import { Link } from "react-router-dom";
 const Registration = () => {
   return (
     <div className={styles.registration}>
-      <Link to="#" onClick={() => alert("Зареєструватися")}>
         Sign up
-      </Link>
     </div>
   );
 };
