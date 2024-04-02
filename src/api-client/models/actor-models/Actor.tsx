@@ -1,12 +1,13 @@
 import MovieActor from "../movie-models/MovieActor";
 
-type Actor = null | {
+type Actor = {
     id: string;
 
     fullName: string;
     image: string;
     biography: string;
     dateOfBirth: Date;
+    country: string;
     //Relationships
     movieActor: MovieActor[];
 };

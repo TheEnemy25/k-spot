@@ -1,4 +1,3 @@
-// Login.js
 import React, { useState } from "react";
 import styles from "./Login.module.scss";
 
@@ -6,7 +5,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = () => {};
+  const handleLogin = () => { };
 
   return (
     <div className={styles.login}>

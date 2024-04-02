@@ -1,2 +1,2 @@
-const CinemaTheaterService = () => {};
+const CinemaTheaterService = () => { };
 export default CinemaTheaterService;

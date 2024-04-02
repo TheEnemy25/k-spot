@@ -1,0 +1,112 @@
+@import "../../../styles/Fonts.module.scss";
+@import "../../../styles/Variables.module.scss";
+@import "../../../styles/Mixins.module.scss";
+
+h1 {
+  font-size: 40px;
+  font-family: $Noto-Sans-Bold;
+}
+
+table {
+  border-collapse: collapse;
+  max-width: 90%;
+  table-layout: fixed;
+  margin: 0 auto;
+  overflow-x: auto;
+  min-width: 90%;
+
+  td,
+  th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    font-family: $Ubuntu-Regular;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  td {
+    max-width: 100px;
+    text-overflow: ellipsis;
+  }
+
+  th {
+    resize: horizontal;
+    background-color: #f2f2f2;
+  }
+
+  th::-webkit-resizer,
+  td::-webkit-resizer {
+    display: none;
+  }
+}
+
+
+.deleteButton {
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  padding: 8px;
+  cursor: pointer;
+  transition: background-color 0.4s ease;
+
+  &:hover {
+    background-color: #ec2c2c;
+  }
+}
+
+.icon {
+  color: white;
+}
+
+.detailsLink {
+  margin-left: 10px;
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  padding: 8px;
+  cursor: pointer;
+  transition: background-color 0.4s ease;
+
+  &:hover {
+    background-color: $primary-color;
+  }
+}
+
+.selectButton {
+  @include button();
+  background-color: #007bff;
+  margin-right: 10px;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+}
+
+.createActorButton {
+  @include button();
+  background-color: #32CD32;
+  margin-right: 10px;
+
+
+  &:hover {
+    background-color: #228b22;
+  }
+
+}
+
+.deleteSelectedButton {
+  @include button();
+  background-color: #ec2c2c;
+  margin-right: 10px;
+
+  &:hover {
+    background-color: #b70000;
+  }
+}
+
+.selectButton,
+.createActorButton,
+.deleteSelectedButton {
+  margin-bottom: 20px;
+}
