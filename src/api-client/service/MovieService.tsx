@@ -3,29 +3,53 @@ import Movie from '../models/movie-models/Movie';
 import APIRoutes from '../api/APIRoutes';
 
 const MovieService = {
-  // getMovies: async () => {
-  //   try {
-  //     const movies = await APIService.get<Movie[]>(`${APIRoutes.getMoviesControllerUrl()}/movies`);
-  //     return movies;
-  //   } catch (error) {
-  //     console.error('Error fetching movies:', error);
-  //     throw error;
-  //   }
-  // },
+  getMovies: async (): Promise<Movie[]> => {
+    try {
+      return await APIService.get<Movie[]>(`${APIRoutes.movieControllerUrl()}/get-all`);
+    }
+    catch (error) {
+      console.error('Error while fetching movies:', error);
+      throw error;
+    }
+  },
 
-  // createMovie: async (movie: Movie) => {
-  //   try {
-  //     if (!movie || !movie.title || !movie.description) {
-  //       throw new Error('Title and description are required for creating a movie.');
-  //     }
+  getMovieById: async (movieId: string): Promise<Movie> => {
+    try {
+      return await APIService.get<Movie>(`${APIRoutes.movieControllerUrl()}/get-by-id`, { id: movieId });
+    } catch (error) {
+      console.error('Error fetching movie by id:', error);
+      throw error;
+    }
+  },
 
-  //     const createdMovie = await APIService.post<Movie>(`${APIRoutes.getMoviesControllerUrl()}/movies`, movie);
-  //     return createdMovie;
-  //   } catch (error) {
-  //     console.error('Error creating movie:', error);
-  //     throw error;
-  //   }
-  // },
+  createMovie: async (movieData: Omit<Movie, 'id'>): Promise<Movie> => {
+    try {
+      const newMovie = await APIService.post<Movie>(`${APIRoutes.movieControllerUrl()}/create`, movieData);
+      return newMovie;
+    } catch (error) {
+      console.error('Error creating movie:', error);
+      throw error;
+    }
+  },
+
+  updateMovie: async (movieId: string, movieData: Movie): Promise<Movie> => {
+    try {
+      return await APIService.put<Movie>(`${APIRoutes.movieControllerUrl()}/put/${movieId}`, movieData);
+    } catch (error) {
+      console.error('Error updating movie:', error);
+      throw error;
+    }
+  },
+
+  deleteMovie: async (movieId: string): Promise<void> => {
+    try {
+      await APIService.delete(`${APIRoutes.movieControllerUrl()}/delete?Id=${movieId}`);
+    }
+    catch (error) {
+      console.error('Error deleting movie:', error);
+      throw error;
+    }
+  }
 };
 
 export default MovieService;

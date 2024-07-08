@@ -5,12 +5,23 @@
   align-items: center;
 }
 
-@mixin button() {
+@mixin buttons() {
   padding: 10px 20px;
   border-radius: 5px;
   border: none;
   cursor: pointer;
-  color: white;
+  color: $text-color-white;
   font-family: $Noto-Sans-Bold;
   transition: background-color 0.3s ease;
+}
+
+@mixin actionButtons {
+  padding: auto;
+  border-radius: 5px;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  background-color: $background-color-black;
+  transition: background-color 0.4s ease;
+  color: $text-color-white;
 }

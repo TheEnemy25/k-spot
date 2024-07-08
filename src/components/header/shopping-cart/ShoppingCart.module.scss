@@ -6,18 +6,21 @@
   height: 30px;
   display: flex;
   align-items: center;
+
   #shoppingCartIcon {
     font-size: 25px;
-    color: $text-color;
+    color: $text-color-white;
     transition: color 0.3s;
+
     &:hover {
       color: $primary-color;
     }
   }
+
   .itemCount {
     position: absolute;
     background-color: $secondary-color;
-    color: $text-color;
+    color: $text-color-white;
     font-size: 12px;
     font-family: $Noto-Sans-Bold;
     border-radius: 50%;

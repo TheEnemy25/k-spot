@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Registration = () => {
   return (
     <div className={styles.registration}>
-        Sign up
+      Sign up
     </div>
   );
 };

@@ -5,6 +5,8 @@ import {
 
 const APIRoutes = {
   actorControllerUrl: () => APIConfiguration.baseURL + "/api/Actor",
+  movieControllerUrl: () => APIConfiguration.baseURL + "/api/Movie",
+
   getAuthenticationUrl: () => IdentityServerConfiguration.authority,
 };
 

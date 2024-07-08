@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Actor from '../../../api-client/models/actor-models/Actor';
 import ActorService from '../../../api-client/service/ActorService';
-import styles from './ActorsPage.module.scss';
+import './ActorsPage.scss';
 import { FaTrash, FaInfo } from 'react-icons/fa6';
 
 function ActorsPage() {
     const [actors, setActors] = useState<Actor[]>([]);
     const [selectedActors, setSelectedActors] = useState<string[]>([]);
     const [showCheckboxes, setShowCheckboxes] = useState(false);
+    const [hoveredImageUrl, setHoveredImageUrl] = useState<string>('');
 
     const navigate = useNavigate();
 
@@ -50,22 +51,26 @@ function ActorsPage() {
         }
     };
 
+    const handleImageHover = (imageUrl: string) => {
+        setHoveredImageUrl(imageUrl);
+    };
+
     return (
-        <div className={styles.actorsPage}>
-            <div className={styles.actorsList}>
-                <h1>Actors List</h1>
-                <button className={styles.selectButton} onClick={() => setShowCheckboxes(!showCheckboxes)}>
+        <div className="actors-admin-page">
+            <div>
+                <h1 className="actors-heading">Actors List</h1>
+                <button className="select-actor-button button" onClick={() => setShowCheckboxes(!showCheckboxes)}>
                     {showCheckboxes ? "Hide Checkboxes" : "Select Actors"}
                 </button>
-                <button className={styles.createActorButton} onClick={() => navigate("/actor/create")}>Create New Actor</button>
+                <button className="create-actor-button button" onClick={() => navigate("/actor/create")}>Create New Actor</button>
 
                 {showCheckboxes && selectedActors.length > 0 && (
-                    <button className={styles.deleteSelectedButton} onClick={handleDeleteSelectedActors}>
+                    <button className="delete-selected-actor-button button" onClick={handleDeleteSelectedActors}>
                         Delete Selected Actors
                     </button>
                 )}
 
-                <table>
+                <table className="actors-table">
                     <thead>
                         <tr>
                             <th>№</th>
@@ -92,9 +97,20 @@ function ActorsPage() {
                                 <td>{actor.id}</td>
                                 <td>{actor.fullName}</td>
                                 <td>{actor.biography}</td>
-                                <td><img src={actor.image} alt={actor.fullName} className={styles.actorImage} /></td>
                                 <td>
-                                    <button className={styles.deleteButton} onClick={async () => {
+                                    <div className="enlarged-image" style={{ display: hoveredImageUrl === actor.image ? 'block' : 'none' }}>
+                                        <img src={hoveredImageUrl} alt="Hovered Actor" />
+                                    </div>
+                                    <img
+                                        src={actor.image}
+                                        alt={actor.fullName}
+                                        className="actor-image"
+                                        onMouseEnter={() => handleImageHover(actor.image)}
+                                        onMouseLeave={() => setHoveredImageUrl('')}
+                                    />
+                                </td>
+                                <td>
+                                    <button className="delete-action-button" onClick={async () => {
                                         const confirmed = window.confirm("Are you sure you want to delete this actor?");
                                         if (confirmed) {
                                             try {
@@ -104,13 +120,12 @@ function ActorsPage() {
                                                 console.error('Error deleting actor:', error);
                                             }
                                         }
-                                    }}
-                                    >
-                                        <FaTrash className={styles.icon} />
+                                    }}>
+                                        <FaTrash />
                                     </button>
 
-                                    <button className={styles.detailsLink}>
-                                        <FaInfo className={styles.icon} onClick={() => handleActorDetails(actor.id)} />
+                                    <button className="details-action-button">
+                                        <FaInfo onClick={() => handleActorDetails(actor.id)} />
                                     </button>
                                 </td>
                             </tr>

@@ -9,13 +9,13 @@ import MovieProductionCountry from "./MovieProductionCountry";
 import MovieScreenwriter from "./MovieScreenwriter";
 import MovieStudio from "./MovieStudio";
 
-type Movie = null | {
+type Movie = {
     id: string;
 
     title: string;
     ageRestriction: number;
     description: string;
-    image: string;
+    imageLink: string;
     trailerLink: string;
     rating: number;
     duration: string;
