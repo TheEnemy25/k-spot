@@ -16,13 +16,13 @@ body {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
-
+  //background-image
   background-image: url('./assets/images/logo.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  background-color: rgba(0, 0, 0, 0.60);
-  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: -1000;
 }
 
 .wrapper {
@@ -30,7 +30,7 @@ body {
   height: 100%;
   flex: 1 1 auto;
   margin-top: 80px;
-  padding: 0 7%;
+  padding: 0 100px;
 }
 
 html,

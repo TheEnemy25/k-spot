@@ -1,21 +1,22 @@
-import styles from "./Header.module.scss";
-import logo from "../../assets/images/logo.png";
+import Logo from "../../assets/images/logo.png";
 import SearchBar from "./search-bar/SearchBar";
 import ShoppingCart from "./shopping-cart/ShoppingCart";
 import Login from "./login/Login";
 import Registration from "./registration/Registration";
 import Location from "./location/Location";
 import { Link } from "react-router-dom";
+import "./Header.scss";
+
 
 const Header = () => {
   return (
-    <header className={styles.header}>
-      <div className={styles.logoNavLinks}>
+    <header className='header'>
+      <div className='logoNavLinks'>
         <Link to="">
-          <img src={logo} className={styles.logo} />
+          <img src={Logo} className='logo' />
         </Link>
         <nav>
-          <ul className={styles.navLinks}>
+          <ul className='navLinks'>
             <li>
               <Link to="/">Home</Link>
             </li>
@@ -31,7 +32,7 @@ const Header = () => {
 
       <SearchBar />
 
-      <div className={styles.authSection}>
+      <div className='authSection'>
         <Link to="">
           <Location />
         </Link>

@@ -22,15 +22,11 @@ import MoviesAdminPage from './pages/movie-page/movies-admin-page/MoviesAdminPag
 import Movie from "./api-client/models/movie-models/Movie";
 
 import { useState } from "react";
-
-import styles from "./index.module.scss";
-
+// import "./index.scss"
 
 function App() {
   const [createdActor, setCreatedActor] = useState<Actor | null>(null);
   const [createdMovie, setCreatedMovie] = useState<Movie | null>(null);
-
-
 
   return (
     <Router>
@@ -38,7 +34,7 @@ function App() {
         <Header />
         <SupportPanel />
 
-        <main className={styles.wrapper}>
+        <main className='wrapper'>
           <Routes >
             <Route path="/" element={<Main />} />
             <Route path="/cinema-theaters" element={<CinemaTheater />} />

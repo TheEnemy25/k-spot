@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import styles from "./SupportPanel.module.scss";
+import "./SupportPanel.scss";
+import { Link } from "react-router-dom";
 import {
   FaFacebook,
   FaInstagram,
@@ -7,7 +8,6 @@ import {
   FaTelegram,
   FaHeadset,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
 
 const SupportPanel = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -30,11 +30,11 @@ const SupportPanel = () => {
 
   return (
     <nav
-      className={`${styles.supportPanel} ${isHovered ? styles.hovered : ""}`}
+      className={`${'supportPanel'} ${isHovered ? 'hovered' : ""}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className={styles.icons}>
+      <div className={'icons'}>
         {iconsData.map((data, index) => (
           <Link
             key={index}
@@ -46,7 +46,7 @@ const SupportPanel = () => {
           </Link>
         ))}
       </div>
-      {isHovered && <div className={styles.hoveredText}></div>}
+      {isHovered && <div className={'hoveredText'}></div>}
     </nav>
   );
 };

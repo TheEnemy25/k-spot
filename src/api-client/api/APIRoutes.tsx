@@ -11,10 +11,3 @@ const APIRoutes = {
 };
 
 export default APIRoutes;
-//   getMoviesControllerUrl: () => APIConfiguration.baseURL + "/api",
-
-//   getAuthenticationUrl: () => IdentityServerConfiguration.authority + "/ping",
-//   PingUrl: () => `${APIConfiguration.baseURL}/api/ping`,
-//   CinemaTheaterUrl: () => `${APIConfiguration.baseURL}/api/cinema`,
-
-// TestPingUrl: () => `${IdentityServerConfiguration.authority}/test/ping`,
