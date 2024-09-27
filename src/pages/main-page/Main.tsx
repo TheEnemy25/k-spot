@@ -1,87 +1,59 @@
-import styles from "./Main.module.scss";
+import "./Main.module.scss";
 
 import axios from "axios";
 
 const Main = () => {
   return (
-    <main className={styles.main}>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
-      <div className={styles.ss}>sdfsdfsdfs</div>
+    <main className="">
+      <div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div><div className="ss">sdfsdfsdfs</div>
+      <div className="ss">sdfsdfsdfs</div>
     </main>
   );
 };

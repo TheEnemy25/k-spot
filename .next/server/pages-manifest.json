@@ -1,0 +1,10 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/movie-pages/create/MovieFormPage": "pages/movie-pages/create/MovieFormPage.js",
+  "/movie-pages/movie/MoviePage": "pages/movie-pages/movie/MoviePage.js",
+  "/cinema-theater-page/CinemaTheater": "pages/cinema-theater-page/CinemaTheater.js",
+  "/": "pages/index.js",
+  "/movie-pages/movies-list/MoviesPage": "pages/movie-pages/movies-list/MoviesPage.js"
+}

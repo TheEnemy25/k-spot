@@ -15,7 +15,7 @@ const ActorService = {
 
     getActorById: async (actorId: string): Promise<Actor> => {
         try {
-            return await APIService.get<Actor>(`${APIRoutes.actorControllerUrl()}/get-by-id`, { id: actorId });
+            return await APIService.get<Actor>(`${APIRoutes.actorControllerUrl()}/get-by-id`, { Id: actorId });
         } catch (error) {
             console.error('Error fetching actor by id:', error);
             throw error;

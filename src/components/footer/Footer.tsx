@@ -6,7 +6,6 @@ import {
   FaYoutubeSquare,
 } from "react-icons/fa";
 import styles from "./Footer.module.scss";
-import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -15,21 +14,21 @@ const Footer = () => {
       <div className={styles.footerContent}>
         <div>Всі права захищені ©K-spot Cinema, 2023</div>
         <div className={styles.social}>
-          <Link to="">
+          <a href="">
             <FaInstagramSquare />
-          </Link>
-          <Link to="">
+          </a>
+          <a href="">
             <FaFacebookSquare />
-          </Link>
-          <Link to="">
+          </a>
+          <a href="">
             <FaTwitterSquare />
-          </Link>
-          <Link to="">
+          </a>
+          <a href="">
             <FaYoutubeSquare />
-          </Link>
-          <Link to="">
+          </a>
+          <a href="">
             <FaTelegramPlane />
-          </Link>
+          </a>
         </div>
         <div>Розробка сайту кінотеатру K-spot</div>
       </div>

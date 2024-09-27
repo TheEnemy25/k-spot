@@ -4,27 +4,26 @@ import ShoppingCart from "./shopping-cart/ShoppingCart";
 import Login from "./login/Login";
 import Registration from "./registration/Registration";
 import Location from "./location/Location";
-import { Link } from "react-router-dom";
-import "./Header.scss";
-
+import Image from 'next/image';
+import "./Header.module.scss";
 
 const Header = () => {
   return (
-    <header className='header'>
-      <div className='logoNavLinks'>
-        <Link to="">
-          <img src={Logo} className='logo' />
-        </Link>
+    <header className="header">
+      <div className="logoNavLinks">
+        <a href="/">
+          <Image src={Logo} alt="Logo" className="logo" />
+        </a>
         <nav>
-          <ul className='navLinks'>
+          <ul className="navLinks">
             <li>
-              <Link to="/">Home</Link>
+              <a href="/">Home</a>
             </li>
             <li>
-              <Link to="/movies">Movies</Link>
+              <a href="/movie-pages/movies-list/MoviesPage">Movies</a>
             </li>
             <li>
-              <Link to="/cinema-theaters">Cinema Theaters</Link>
+              <a href="/cinema-theater-page/CinemaTheater">Cinema Theaters</a>
             </li>
           </ul>
         </nav>
@@ -32,20 +31,20 @@ const Header = () => {
 
       <SearchBar />
 
-      <div className='authSection'>
-        <Link to="">
+      <div className="authSection">
+        <a href="">
           <Location />
-        </Link>
-        <Link to="">
+        </a>
+        <a href="">
           <Login />
-        </Link>
+        </a>
         <p>│</p>
-        <Link to="">
+        <a href="">
           <Registration />
-        </Link>
-        <Link to="">
+        </a>
+        <a href="">
           <ShoppingCart />
-        </Link>
+        </a>
       </div>
     </header>
   );
