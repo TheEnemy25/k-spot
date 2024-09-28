@@ -335,6 +335,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@800&display=swap");
 *, ::before, ::after{
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -934,6 +938,279 @@ video {
 }
 .icons a:nth-child(5):hover {
   background: linear-gradient(45deg, #66757f, #00acee, #36d8ff, #f5f8fa);
+}
+
+.actors-admin-page {
+  padding: 0 5%;
+}
+.actors-admin-page .actors-heading {
+  font-size: 40px;
+  font-family: "Noto Sans", sans-serif;
+  color: white;
+  margin-bottom: 10px;
+}
+.actors-admin-page .actors-table {
+  border-collapse: separate;
+  min-width: 90%;
+  max-width: 100%;
+  table-layout: fixed;
+  overflow-x: auto;
+  background-color: black;
+  margin: 0 auto;
+}
+.actors-admin-page .actors-table td,
+.actors-admin-page .actors-table th {
+  border: 1.5px solid white;
+  padding: 8px;
+  font-family: "Ubuntu", sans-serif;
+  overflow: hidden;
+  white-space: nowrap;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+}
+.actors-admin-page .actors-table th {
+  resize: horizontal;
+}
+.actors-admin-page .actors-table th::-webkit-resizer,
+.actors-admin-page .actors-table td::-webkit-resizer {
+  display: none;
+}
+.actors-admin-page .actors-table tr:first-child th:first-child {
+  border-top-left-radius: 10px;
+}
+.actors-admin-page .actors-table tr:first-child th:last-child {
+  border-top-right-radius: 10px;
+}
+.actors-admin-page .actors-table td {
+  max-width: 100px;
+  text-overflow: ellipsis;
+  position: relative;
+}
+.actors-admin-page .actors-table td .delete-action-button {
+  padding: auto;
+  border-radius: 5px;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  background-color: black;
+  transition: background-color 0.4s ease;
+  color: white;
+}
+.actors-admin-page .actors-table td .delete-action-button:hover {
+  background-color: #ec2c2c;
+}
+.actors-admin-page .actors-table td .details-action-button {
+  padding: auto;
+  border-radius: 5px;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  background-color: black;
+  transition: background-color 0.4s ease;
+  color: white;
+  margin-left: 10px;
+}
+.actors-admin-page .actors-table td .details-action-button:hover {
+  background-color: #00BFFF;
+}
+.actors-admin-page .actors-table td .actor-image {
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.actors-admin-page .actors-table td .enlarged-image {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  background-color: white;
+  padding: 2px;
+  display: none;
+}
+.actors-admin-page .actors-table td .enlarged-image img {
+  max-width: 500px;
+  max-height: 500px;
+  object-fit: cover;
+}
+.actors-admin-page .button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-family: "Noto Sans", sans-serif;
+  transition: background-color 0.3s ease;
+  margin-right: 10px;
+}
+.actors-admin-page .select-actor-button {
+  background-color: #007bff;
+}
+.actors-admin-page .select-actor-button:hover {
+  background-color: #0056b3;
+}
+.actors-admin-page .create-actor-button {
+  background-color: #32CD32;
+}
+.actors-admin-page .create-actor-button:hover {
+  background-color: #228b22;
+}
+.actors-admin-page .delete-selected-actor-button {
+  background-color: #ec2c2c;
+}
+.actors-admin-page .delete-selected-actor-button:hover {
+  background-color: #b70000;
+}
+.actors-admin-page .select-actor-button,
+.actors-admin-page .create-actor-button,
+.actors-admin-page .delete-selected-actor-button {
+  margin-bottom: 20px;
+}
+
+.movies-admin-page {
+  padding: 0 5%;
+}
+.movies-admin-page .movies-heading {
+  font-size: 40px;
+  font-family: "Noto Sans", sans-serif;
+  color: white;
+  margin-bottom: 10px;
+}
+.movies-admin-page .movie-table {
+  border-collapse: separate;
+  min-width: 99%;
+  max-width: 100%;
+  table-layout: fixed;
+  overflow-x: auto;
+  margin: 0 auto;
+}
+.movies-admin-page .movie-table td,
+.movies-admin-page .movie-table th {
+  border: 1.5px solid #ddd;
+  padding: 8px;
+  font-family: "Ubuntu", sans-serif;
+  overflow: hidden;
+  white-space: nowrap;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+}
+.movies-admin-page .movie-table th {
+  resize: horizontal;
+}
+.movies-admin-page .movie-table th::-webkit-resizer,
+.movies-admin-page .movie-table td::-webkit-resizer {
+  display: none;
+}
+.movies-admin-page .movie-table tr:first-child th:first-child {
+  border-top-left-radius: 10px;
+}
+.movies-admin-page .movie-table tr:first-child th:last-child {
+  border-top-right-radius: 10px;
+}
+.movies-admin-page .movie-table td {
+  max-width: 100px;
+  text-overflow: ellipsis;
+}
+.movies-admin-page .movie-table td .delete-action-button {
+  padding: auto;
+  border-radius: 5px;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  background-color: black;
+  transition: background-color 0.4s ease;
+  color: white;
+}
+.movies-admin-page .movie-table td .delete-action-button:hover {
+  background-color: #ec2c2c;
+}
+.movies-admin-page .movie-table td .details-action-button {
+  padding: auto;
+  border-radius: 5px;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  background-color: black;
+  transition: background-color 0.4s ease;
+  color: white;
+  margin-left: 10px;
+}
+.movies-admin-page .movie-table td .details-action-button:hover {
+  background-color: #00BFFF;
+}
+.movies-admin-page .movie-table td .movie-image {
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
+}
+.movies-admin-page .movie-table td .enlarged-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.movies-admin-page .movie-table td .enlarged-image img {
+  max-width: 500px;
+  max-height: 500px;
+  object-fit: cover;
+}
+.movies-admin-page .movie-table td .enlarged-image .fullscreen-image {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+.movies-admin-page .button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-family: "Noto Sans", sans-serif;
+  transition: background-color 0.3s ease;
+  margin-right: 10px;
+}
+.movies-admin-page .select-movie-button {
+  background-color: #007bff;
+}
+.movies-admin-page .select-movie-button:hover {
+  background-color: #0056b3;
+}
+.movies-admin-page .create-movie-button {
+  background-color: #32CD32;
+}
+.movies-admin-page .create-movie-button:hover {
+  background-color: #228b22;
+}
+.movies-admin-page .delete-selected-movie-button {
+  background-color: #ec2c2c;
+}
+.movies-admin-page .delete-selected-movie-button:hover {
+  background-color: #b70000;
+}
+.movies-admin-page .select-movie-button,
+.movies-admin-page .create-movie-button,
+.movies-admin-page .delete-selected-movie-button {
+  margin-bottom: 20px;
+}
+
+.ss {
+  font-size: 30px;
+  color: white;
+}
+
+.main .ss {
+  font-size: 50px;
+  color: white;
 }
 
 *,

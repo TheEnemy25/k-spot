@@ -1,15 +1,16 @@
 {
   "pages": {
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
+    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
-    ],
-    "/actor-pages/actor/[actorId]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/actor-pages/actor/[actorId]/page.js"
     ],
     "/actor-pages/actors-list/page": [
       "static/chunks/webpack.js",
@@ -17,28 +18,10 @@
       "static/css/app/actor-pages/actors-list/page.css",
       "static/chunks/app/actor-pages/actors-list/page.js"
     ],
-    "/actor-pages/create/page": [
+    "/actor-pages/actor/[actorId]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/actor-pages/create/page.js"
-    ],
-    "/movie-pages/create/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/movie-pages/create/page.css",
-      "static/chunks/app/movie-pages/create/page.js"
-    ],
-    "/movie-pages/movie/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/movie-pages/movie/page.css",
-      "static/chunks/app/movie-pages/movie/page.js"
-    ],
-    "/movie-pages/movies-list/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/movie-pages/movies-list/page.css",
-      "static/chunks/app/movie-pages/movies-list/page.js"
+      "static/chunks/app/actor-pages/actor/[actorId]/page.js"
     ],
     "/_not-found/page": [
       "static/chunks/webpack.js",
