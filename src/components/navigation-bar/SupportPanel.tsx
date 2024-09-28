@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import React, { useState } from "react";
 import "./SupportPanel.module.scss";
@@ -31,7 +31,7 @@ const SupportPanel = () => {
 
   return (
     <nav
-      className={`${"supportPanel"} ${isHovered ? "hovered" : ""}`}
+      className={`${"support-panel"} ${isHovered ? "hovered" : ""}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -47,7 +47,7 @@ const SupportPanel = () => {
           </a>
         ))}
       </div>
-      {isHovered && <div className={"hoveredText"}></div>}
+      {isHovered && <div className=""></div>}
     </nav>
   );
 };

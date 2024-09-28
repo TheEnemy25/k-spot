@@ -1,4 +1,5 @@
 /* reset.css */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,7 +10,7 @@
 
 @import "../components/header/Header.module.scss";
 @import "../components/footer/Footer.module.scss";
-@import "../components//navigation-bar//SupportPanel.module.scss";
+@import "../components//navigation-bar/SupportPanel.module.scss";
 
 @import "../app/actor-pages/actors-list/ActorsPage.module.scss";
 @import "../app/movie-pages/movies-admin-page/MoviesAdminPage.module.scss";

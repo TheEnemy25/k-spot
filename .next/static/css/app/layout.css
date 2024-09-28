@@ -178,7 +178,7 @@
   \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@800&display=swap");
-.SupportPanel_supportPanel__Hkc5o {
+.SupportPanel_support-panel__wXwBN {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -195,7 +195,7 @@
   transition: width 0.3s;
 }
 
-.SupportPanel_supportPanel__Hkc5o.SupportPanel_hovered__P_Rmd {
+.SupportPanel_support-panel__wXwBN.SupportPanel_hovered__P_Rmd {
   width: 100px;
 }
 
@@ -856,7 +856,7 @@ video {
   color: #00BFFF;
 }
 
-.supportPanel {
+.support-panel {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -873,7 +873,7 @@ video {
   transition: width 0.3s;
 }
 
-.supportPanel.hovered {
+.support-panel.hovered {
   width: 100px;
 }
 

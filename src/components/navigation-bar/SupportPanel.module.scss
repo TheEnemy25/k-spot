@@ -2,7 +2,7 @@
 @import "../../styles/Variables.module.scss";
 @import "../../styles/Fonts.module.scss";
 
-.supportPanel {
+.support-panel {
   @include centerFlex;
   position: fixed;
   left: 0;
@@ -16,7 +16,7 @@
   transition: width 0.3s;
 }
 
-.supportPanel.hovered {
+.support-panel.hovered {
   width: 100px;
 }
 
