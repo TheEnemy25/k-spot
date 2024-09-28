@@ -1,0 +1,9 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/actor-pages/actor/[actorId]/page": "app/actor-pages/actor/[actorId]/page.js",
+  "/actor-pages/actors-list/page": "app/actor-pages/actors-list/page.js",
+  "/actor-pages/create/page": "app/actor-pages/create/page.js",
+  "/movie-pages/create/page": "app/movie-pages/create/page.js",
+  "/movie-pages/movie/page": "app/movie-pages/movie/page.js",
+  "/movie-pages/movies-list/page": "app/movie-pages/movies-list/page.js"
+}

@@ -1,6 +1,8 @@
+"use client"; // Додаємо це на початок файлу
+
 import React, { useState } from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
-import styles from "./Location.module.scss";
+import "./Location.module.scss";
 
 const Location = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -10,9 +12,9 @@ const Location = () => {
   };
 
   return (
-    <div className={styles.location}>
+    <div className="location">
       <button type="button" onClick={toggleMenu}>
-        <FaMapMarkerAlt id={styles.locationIcon} />
+        <FaMapMarkerAlt />
         <p>Forum</p>
       </button>
     </div>

@@ -1,21 +1,32 @@
-import { FaShoppingCart } from "react-icons/fa";
-import styles from "./ShoppingCart.module.scss";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+"use client";
 
-const ShoppingCart = () => {
-  const [itemCount, setItemCount] = useState(0);
+import React, { useState } from "react";
+import "./ShoppingCart.module.scss";
+import {
+  FaFacebook,
+  FaTwitter,
+  FaInstagram,
+  FaYoutube,
+} from "react-icons/fa";
 
-  const addToCart = () => {
-    setItemCount(itemCount + 1);
+const SupportPanel = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const togglePanel = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
-    <div className={styles.shoppingCart}>
-        <FaShoppingCart id={styles.shoppingCartIcon} />
-        <span className={styles.itemCount}>{itemCount}</span>
+    <div className={`supportPanel ${isOpen ? "open" : ""}`}>
+      <button onClick={togglePanel}>Support</button>
+      <div className="socialMediaIcons">
+        <FaFacebook />
+        <FaTwitter />
+        <FaInstagram />
+        <FaYoutube />
+      </div>
     </div>
   );
 };
 
-export default ShoppingCart;
+export default SupportPanel;
