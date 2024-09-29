@@ -1,10 +1,18 @@
-@mixin centerFlex() {
+@mixin flex-container($flex-direction, $justify-content, $align-items, $flex-wrap: nowrap) {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  flex-wrap: $flex-wrap;
 }
 
+@mixin sizing-and-background($width, $height, $background-color: transparent) {
+  width: $width;
+  height: $height;
+  background-color: $background-color;
+}
+
+//fix
 @mixin buttons() {
   padding: 10px 20px;
   border-radius: 5px;
@@ -15,6 +23,7 @@
   transition: background-color 0.3s ease;
 }
 
+//fix
 @mixin actionButtons {
   padding: auto; //fix
   border-radius: 5px;
@@ -24,4 +33,29 @@
   background-color: $background-color-black;
   transition: background-color 0.4s ease;
   color: $text-color-white;
+}
+
+@mixin action-buttons($background-color: $background-color-black,
+  $color: $text-color-white,
+  $with-transition: true) {
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+
+  background-color: $background-color;
+  color: $color;
+
+  @if $with-transition {
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+}
+
+@mixin text-styles($size, $color, $family: "", $line-height: 1.5, $weight: normal) {
+  font-size: $size;
+  color: $color;
+  font-family: $family;
+  line-height: $line-height;
+  font-weight: $weight;
+  text-decoration: none;
 }

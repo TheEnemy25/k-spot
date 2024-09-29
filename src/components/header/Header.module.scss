@@ -1,11 +1,11 @@
 @import "../../styles/Fonts.module.scss";
 @import "../../styles/Variables.module.scss";
+@import "../../styles/Mixins.module.scss";
 
 .header {
   width: 100%;
   height: 80px;
-  padding: 5px;
-  top: 0;
+  padding: 5px 20px;
   background-color: $background-color-black;
   position: fixed;
   display: flex;
@@ -13,56 +13,80 @@
   align-items: center;
   z-index: 1000;
 
-  .logoNavLinks {
+  &__logo-nav {
     display: flex;
     align-items: center;
+  }
+
+  &__logo {
+    width: 7.5rem;
+    height: 100%;
+  }
+
+  &__nav {
     margin-left: 20px;
-
-    .logo {
-      width: 7.5rem;
-      height: 100%;
-    }
-
-    .navLinks {
-      display: flex;
-      justify-content: space-around;
-      margin-left: 20px;
-
-      li {
-        display: inline-block;
-        padding: 0 10px;
-
-        a {
-          font-size: 16px;
-          color: $text-color-white;
-          text-decoration: none;
-          transition: color 0.3s;
-          font-family: $Noto-Sans-Bold;
-
-          &:hover {
-            color: $primary-color;
-          }
-        }
-      }
-    }
   }
+}
 
-  .authSection {
-    display: flex;
-    align-items: center;
+.nav__list {
+  display: flex;
+  gap: 20px;
+}
 
-    a {
-      color: $text-color-white;
-      padding: 0 5px;
-      text-decoration: none;
+.nav__item {}
 
-      &:hover {
-        color: $primary-color;
-      }
-    }
-
-    p {
-      color: $text-color-white;
-    }
+.nav__link {
+  @include text-styles(16px, $text-color-white, $Noto-Sans-Bold);
+  text-decoration: none;
+  transition: color 0.3s;
+  &:hover {
+    color: $primary-color;
   }
+}
+
+.header__auth {
+  display: flex;
+  align-items: center;
+}
+
+.auth__location,
+.auth__login,
+.auth__registration {
+  @include text-styles(16px, $text-color-white, $Noto-Sans-Bold);
+  transition: color 0.3s;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+.auth__separator {
+  color: $text-color-white;
+}
+
+.auth__cart {
+  position: relative;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.cart__icon {
+  font-size: 25px;
+  color: $text-color-white;
+  transition: color 0.3s;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+.cart__count {
+  @include text-styles(12px, $text-color-white, $Noto-Sans-Bold, bold);
+  position: absolute;
+  background-color: $secondary-color;
+  border-radius: 50%;
+  padding: 2px 6px;
+  top: -5px;
+  right: -5px;
 }

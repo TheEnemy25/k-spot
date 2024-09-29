@@ -1,6 +1,6 @@
 @import "../../../styles/Variables.module.scss";
 
-.inputWrapper {
+.input-wrapper {
   background-color: white;
   border-radius: 10px;
   height: 30px;
@@ -23,7 +23,7 @@
   }
 }
 
-#searchIcon {
+#search-icon {
   font-size: 20px;
   color: $primary-color;
 }

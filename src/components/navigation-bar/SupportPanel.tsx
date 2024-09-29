@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState } from "react";
 import "./SupportPanel.module.scss";
@@ -12,6 +12,7 @@ import {
 
 const SupportPanel = () => {
   const [isHovered, setIsHovered] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -19,6 +20,7 @@ const SupportPanel = () => {
 
   const handleMouseLeave = () => {
     setIsHovered(false);
+    setHoveredIndex(null);
   };
 
   const iconsData = [
@@ -31,23 +33,26 @@ const SupportPanel = () => {
 
   return (
     <nav
-      className={`${"support-panel"} ${isHovered ? "hovered" : ""}`}
+      className={`support-panel ${isHovered ? "support-panel--hovered" : ""}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className={"icons"}>
+      <div className="support-panel__icons">
         {iconsData.map((data, index) => (
           <a
             key={index}
-            href={`https://www.${data.title.toLowerCase()}.com`}
-            onMouseEnter={handleMouseEnter}
+            href="/"
+            className="support-panel__icon"
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
           >
             {data.icon}
-            <p>{isHovered ? data.title : ""}</p>
+            {hoveredIndex === index && (
+              <span className="support-panel__tooltip">{data.title}</span>
+            )}
           </a>
         ))}
       </div>
-      {isHovered && <div className=""></div>}
     </nav>
   );
 };

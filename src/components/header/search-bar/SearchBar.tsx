@@ -1,10 +1,10 @@
 import { FaSearch } from "react-icons/fa";
-import styles from "./SearchBar.module.scss";
+import "./SearchBar.module.scss";
 
 const SearchBar = () => {
   return (
-    <div className={styles.inputWrapper}>
-      <FaSearch id={styles.searchIcon} />
+    <div className="input-wrapper">
+      <FaSearch id="search-icon" />
       <input placeholder="Search ..." />
     </div>
   );

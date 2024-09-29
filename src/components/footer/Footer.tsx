@@ -5,15 +5,15 @@ import {
   FaTwitterSquare,
   FaYoutubeSquare,
 } from "react-icons/fa";
-import styles from "./Footer.module.scss";
+import "./Footer.module.scss";
 
 const Footer = () => {
   return (
-    <footer className={styles.footer}>
-      <hr id={styles.footerHr} />
-      <div className={styles.footerContent}>
+    <footer className="footer">
+      <hr id="footer-hr" />
+      <div className="footer-content">
         <div>Всі права захищені ©K-spot Cinema, 2023</div>
-        <div className={styles.social}>
+        <div className="social">
           <a href="">
             <FaInstagramSquare />
           </a>
