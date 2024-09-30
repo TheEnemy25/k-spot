@@ -7,7 +7,7 @@ const Registration = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleRegister = () => { };
-
+  // react hook form (zod validation)
   return (
     <div className="registration">
       <h2>Реєстрація</h2>

@@ -33,12 +33,11 @@
   gap: 20px;
 }
 
-.nav__item {}
-
 .nav__link {
   @include text-styles(16px, $text-color-white, $Noto-Sans-Bold);
   text-decoration: none;
   transition: color 0.3s;
+
   &:hover {
     color: $primary-color;
   }

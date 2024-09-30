@@ -18,10 +18,10 @@ const Header = () => {
         </Link>
         <nav className="header__nav">
           <ul className="nav__list">
-            <li className="nav__item">
+            <li>
               <Link href="/movie/movies-list" className="nav__link">Movies</Link>
             </li>
-            <li className="nav__item">
+            <li>
               <Link href="/cinema-theater/CinemaTheater" className="nav__link">Cinema Theaters</Link>
             </li>
           </ul>

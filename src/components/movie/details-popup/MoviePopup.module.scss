@@ -1,0 +1,22 @@
+@import "../../../styles/Fonts.module.scss";
+@import "../../../styles/Variables.module.scss";
+@import "../../../styles/Fonts.module.scss";
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    color: $text-color-white;
+    background-color: $background-color-black;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    position: absolute;
+}

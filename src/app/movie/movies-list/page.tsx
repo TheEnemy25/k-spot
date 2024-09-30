@@ -1,114 +1,109 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Movie from '../../../api-client/models/movie-models/Movie';
 import MovieService from '../../../api-client/service/MovieService';
 import './MoviesPage.module.scss';
+import Image from 'next/image';
+import Link from 'next/link';
+import { getAgeIcon } from '../../../components/ageIcons';
+import Info from "../../../../public/images/info.png";
+import MoviePopup from '../../../components/movie/details-popup/MovieDetailsPopup';
+import MovieDetailsPopup from '../../../components/movie/details-popup/MovieDetailsPopup';
 
-function MoviesPage() {
+const POPUP_WIDTH = 300;
+const POPUP_OFFSET = 10;
+
+const MoviesPage: React.FC = () => {
     const [movies, setMovies] = useState<Movie[]>([]);
-    const [showAdditionalInfo, setShowAdditionalInfo] = useState(false);
-    const [tooltipDirection, setTooltipDirection] = useState<'left' | 'right'>('right');
+    const [hoveredMovie, setHoveredMovie] = useState<Movie | null>(null);
+    const [popupPosition, setPopupPosition] = useState<{ top: number; left: number }>({ top: 0, left: 0 });
 
     useEffect(() => {
-        async function fetchMovies() {
+        const fetchMovies = async () => {
             try {
                 const moviesData = await MovieService.getMovies();
                 setMovies(moviesData);
             } catch (error) {
-                console.error('Error fetching movies:', error);
-            }
-        }
-        fetchMovies();
-    }, []);
-
-    const listInfoRef = useRef<HTMLDivElement>(null);
-    const infoRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        const handleTooltipPosition = () => {
-            const listInfoElement = listInfoRef.current;
-            const infoElement = infoRef.current;
-
-            if (listInfoElement && infoElement) {
-                const listInfoRect = listInfoElement.getBoundingClientRect();
-                const infoRect = infoElement.getBoundingClientRect();
-
-                const isOverflowing = (listInfoRect.right + infoRect.width) > window.innerWidth;
-
-                setTooltipDirection(isOverflowing ? 'left' : 'right');
+                console.error("Error fetching movies:", error);
             }
         };
 
-        if (showAdditionalInfo) {
-            handleTooltipPosition();
-            window.addEventListener('resize', handleTooltipPosition);
+        fetchMovies();
+    }, []);
 
-            return () => {
-                window.removeEventListener('resize', handleTooltipPosition);
+    const calculatePopupPosition = (iconRect: DOMRect): { top: number; left: number } => {
+        const screenWidth = window.innerWidth;
+        const popupLeft = iconRect.right + POPUP_OFFSET;
+
+        if (popupLeft + POPUP_WIDTH > screenWidth) {
+            return {
+                top: iconRect.top + window.scrollY,
+                left: iconRect.left - POPUP_WIDTH - POPUP_OFFSET
+            };
+        } else {
+            return {
+                top: iconRect.top + window.scrollY,
+                left: popupLeft
             };
         }
-    }, [showAdditionalInfo]);
+    };
 
-    const handleMouseEnter = () => {
-        setShowAdditionalInfo(true);
+    const handleMouseEnter = (movie: Movie, event: React.MouseEvent<HTMLImageElement>) => {
+        setHoveredMovie(movie);
+        const iconRect = event.currentTarget.getBoundingClientRect();
+        setPopupPosition(calculatePopupPosition(iconRect));
     };
 
     const handleMouseLeave = () => {
-        setShowAdditionalInfo(false);
+        setHoveredMovie(null);
     };
 
     return (
-        <div className='movies-pages'>
-            <h1 className='movies-heading'>Movies List</h1>
-            <div className="movie-content__list">
-                {movies.map((movie, index) => (
-                    <div key={movie.id} className='movie-details' style={{ backgroundImage: `url(${movie.imageLink})` }}>
-                        <div className="movie-details__list">
-                            <p>{movie.title}</p>
-                            {movie.releaseDate instanceof Date && <p>{movie.releaseDate.toLocaleDateString()}</p>}
-                            <div
-                                ref={listInfoRef}
-                                className='movie-details__list-info'
-                                onMouseEnter={handleMouseEnter}
-                                onMouseLeave={handleMouseLeave}
-                            >
-                                {/* <Zero /> */}
+        <>
+            <section className="movies">
+                <h1 className="movies__title">Movies List</h1>
+                <div className="movies__list">
+                    {movies.map((movie) => (
+                        <article className="movies__item" key={movie.id}>
+                            <div className="movies__icons">
+                                <Image
+                                    className="movies__age-icon"
+                                    src={getAgeIcon(movie.ageRestriction)}
+                                    alt={`${movie.ageRestriction}`}
+                                    width={30}
+                                    height={30}
+                                />
+                                <Image
+                                    src={Info}
+                                    className="movies__info-icon"
+                                    alt={`Info`}
+                                    width={30}
+                                    height={30}
+                                    onMouseEnter={(event) => handleMouseEnter(movie, event)}
+                                    onMouseLeave={handleMouseLeave}
+                                />
                             </div>
-                            {showAdditionalInfo && (
-                                <div
-                                    ref={infoRef}
-                                    className={`additional-info ${index % 6 === 5 ? "last-item" : ""}`}
-
-                                >
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
+                            <Image
+                                className="movies__poster"
+                                src={movie.imageLink}
+                                alt={movie.title}
+                                layout="fill"
+                            />
+                            <div className="movies__content">
+                                <Link href={`/movie/${movie.id}`} className="movies__content-title">
+                                    {movie.title}
+                                </Link>
+                            </div>
+                        </article>
+                    ))}
+                </div>
+                {hoveredMovie && (
+                    <MovieDetailsPopup movie={hoveredMovie} position={popupPosition} />
+                )}
+            </section>
+        </>
     );
-}
+};
 
 export default MoviesPage;
-
-
-{/* {movie.ageRestriction === 0 && <Zero className="movie-age-restriction" />}
-                            {movie.ageRestriction === 12 && <Twelve className="movie-age-restriction" />}
-                            {movie.ageRestriction === 16 && <Sixteen className="movie-age-restriction" />}
-                            {movie.ageRestriction === 18 && <Eighteen className="movie-age-restric tion" />}*/}
-
-
-
-
-
-
-{/* <h2>{movie.title}</h2>
-                        <p>Age Restriction: {movie.ageRestriction}</p>
-                        <p>Rating: {movie.rating}</p>
-                        <p>Duration: {movie.duration}</p> */}
-
-// import { ReactComponent as Zero } from '../../../assets/svgs/0.svg';
-// import { ReactComponent as Twelve } from '../../../assets/svgs/12.svg';
-// import { ReactComponent as Sixteen } from '../../../assets/svgs/16.svg';

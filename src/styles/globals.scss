@@ -18,6 +18,11 @@
 @import "../app/cinema-theater/CinemaTheater.module.scss";
 @import "../app/main/Main.module.scss";
 
+@import "../app/movie/movies-list/MoviesPage.module.scss";
+
+@import "../components/movie/details-popup/MoviePopup.module.scss";
+
+
 *,
 *::before,
 *::after {
