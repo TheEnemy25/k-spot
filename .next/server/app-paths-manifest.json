@@ -1,5 +1,3 @@
 {
-  "/page": "app/page.js",
-  "/actor/[actorId]/page": "app/actor/[actorId]/page.js",
-  "/admin/actor/create/page": "app/admin/actor/create/page.js"
+  "/movie/movies-list/page": "app/movie/movies-list/page.js"
 }

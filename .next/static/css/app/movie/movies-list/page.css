@@ -3,56 +3,95 @@
   \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@800&display=swap");
-.MoviesPage_movies-pages__X3kxl .MoviesPage_movies-heading__ZpOOO {
-  font-size: 40px;
-  font-family: "Noto Sans", sans-serif;
+.MoviesPage_movies__title__xyTJJ {
+  font-size: 50px;
   color: white;
-  margin-bottom: 10px;
+  font-family: "Noto Sans", sans-serif;
+  line-height: 1.5;
+  font-weight: normal;
+  text-decoration: none;
+  margin: 0 0 20px 0;
 }
-.MoviesPage_movies-pages__X3kxl .MoviesPage_movie-content__list__bv9_6 {
+.MoviesPage_movies__list__MI2vB {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 10px;
+  gap: 20px;
 }
-.MoviesPage_movies-pages__X3kxl .MoviesPage_movie-content__list__bv9_6 .MoviesPage_movie-details__V2t_h {
+.MoviesPage_movies__item__ytiI0 {
   position: relative;
   width: 250px;
   height: 300px;
-  object-fit: cover;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  display: flex;
 }
-.MoviesPage_movies-pages__X3kxl .MoviesPage_movie-content__list__bv9_6 .MoviesPage_movie-details__V2t_h .MoviesPage_movie-details__list__3s0Bx {
+.MoviesPage_movies__item__ytiI0 .MoviesPage_movies__poster__Atr_n {
   width: 100%;
-  padding: 10px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
 }
-.MoviesPage_movies-pages__X3kxl .MoviesPage_movie-content__list__bv9_6 .MoviesPage_movie-details__V2t_h .MoviesPage_movie-details__list__3s0Bx .MoviesPage_movie-details__list-info__PJtNM {
+.MoviesPage_movies__item__ytiI0 .MoviesPage_movies__icons__anY5l {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+}
+.MoviesPage_movies__item__ytiI0 .MoviesPage_movies__icons__anY5l .MoviesPage_movies__age-icon__HddYk {
+  z-index: 1;
+  border-radius: 3px;
+  padding: 2px;
+  display: flex;
+}
+.MoviesPage_movies__item__ytiI0 .MoviesPage_movies__icons__anY5l .MoviesPage_movies__info-icon__yQieh {
+  z-index: 1;
+  border-radius: 3px;
+  padding: 2px;
+  display: flex;
+}
+.MoviesPage_movies__item__ytiI0 .MoviesPage_movies__content__tpviD {
   position: absolute;
-  right: 10px;
-  top: 2px;
-}
-
-.MoviesPage_additional-info__3WmnO {
-  position: absolute;
-  top: 0;
-  width: 200px;
-  height: 200px;
-  background-color: white;
-  visibility: hidden;
-  z-index: 1000000;
-  border: 1px solid #ccc;
-  padding: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  left: calc(100% + 10px);
-}
-
-.MoviesPage_movie-details__list-info__PJtNM:hover + .MoviesPage_additional-info__3WmnO {
-  visibility: visible;
-}
-
-.MoviesPage_last-item__sTp8L {
-  background-color: black;
-  color: black;
+  bottom: 0;
   left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  word-break: break-all;
+}
+.MoviesPage_movies__item__ytiI0 .MoviesPage_movies__content-title__V8fg_ {
+  font-size: 15px;
+  color: white;
+  font-family: "Ubuntu", sans-serif;
+  line-height: 1.5;
+  font-weight: normal;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.MoviesPage_movies__item__ytiI0 .MoviesPage_movies__content-title__V8fg_:hover {
+  color: #00BFFF;
+}
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[9].use[5]!./src/components/movie/details-popup/MoviePopup.module.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@800&display=swap");
+.MoviePopup_popup-overlay__sbV5o {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.MoviePopup_popup-content___AUhU {
+  color: white;
+  background-color: black;
+  padding: 20px;
+  border-radius: 5px;
+  width: 300px;
+  position: absolute;
 }
