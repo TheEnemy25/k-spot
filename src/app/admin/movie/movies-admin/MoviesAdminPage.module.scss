@@ -96,11 +96,9 @@
                     z-index: 9999;
 
                     .movies-admin__fullscreen-image {
-                        max-width: 90%;
-                        max-height: 90%;
-                        object-fit: contain; // or object-fit: cover;
-                        // object-fit: cover; //don't delete important!
-                        margin: auto;
+                        object-fit: cover;
+                        width: 100vw;
+                        height: 100vh;
                     }
                 }
             }

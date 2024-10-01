@@ -1,4 +1,4 @@
-// File: /Users/mac/Desktop/k-spot/src/app/movie/movies-list/page.tsx
+// File: C:\Users\andri\source\repos\k-spot\src\app\movie\movies-list\page.tsx
 import * as entry from '../../../../../src/app/movie/movies-list/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

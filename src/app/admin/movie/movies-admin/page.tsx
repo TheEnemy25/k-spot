@@ -27,7 +27,6 @@ function MoviesAdminPage() {
     fetchMovies();
   }, []);
 
-  // Use the custom hook
   const { selectedEntities, handleCheckboxChange, handleDeleteSelectedEntities } = useEntityManager(
     MovieService.deleteMovie,
     movies
@@ -103,18 +102,25 @@ function MoviesAdminPage() {
                 <td className="movies-admin__table-cell">{movie.description}</td>
                 <td className="movies-admin__table-cell">
                   <div className="movies-admin__image-center">
-                    <div
-                      className="movies-admin__large-image"
-                      style={{ display: fullscreenImageUrl ? "flex" : "none" }}
-                      onClick={() => setFullscreenImageUrl(null)}
-                    >
-                      <Image
-                        src={fullscreenImageUrl || ""}
-                        alt="Fullscreen Movie"
-                        className="movies-admin__fullscreen-image"
-                        layout="fill"
-                      />
-                    </div>
+                    {fullscreenImageUrl && (
+                      <div
+                        className="movies-admin__large-image"
+                        style={{ display: "flex" }}
+                        onClick={() => setFullscreenImageUrl(null)}
+                      >
+                        <Image
+                          key={fullscreenImageUrl}
+                          src={fullscreenImageUrl}
+                          alt="Fullscreen Movie"
+                          className="movies-admin__fullscreen-image"
+                          layout="fill"
+                          loading="eager"
+                          objectFit="cover"
+                          priority
+                          unoptimized
+                        />
+                      </div>
+                    )}
                     <Image
                       src={movie.imageLink}
                       alt={movie.title}

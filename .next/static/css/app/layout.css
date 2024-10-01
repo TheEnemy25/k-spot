@@ -1083,10 +1083,9 @@ video {
   z-index: 9999;
 }
 .movies-admin__table-cell .movies-admin__image-center .movies-admin__large-image .movies-admin__fullscreen-image {
-  max-width: 90%;
-  max-height: 90%;
-  object-fit: contain;
-  margin: auto;
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
 }
 .movies-admin .movies-admin__buttons .movies-admin__select-button {
   background-color: #007bff;
@@ -1302,10 +1301,9 @@ video {
   z-index: 9999;
 }
 .movies-admin__table-cell .movies-admin__image-center .movies-admin__large-image .movies-admin__fullscreen-image {
-  max-width: 90%;
-  max-height: 90%;
-  object-fit: contain;
-  margin: auto;
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
 }
 .movies-admin .movies-admin__buttons .movies-admin__select-button {
   background-color: #007bff;
