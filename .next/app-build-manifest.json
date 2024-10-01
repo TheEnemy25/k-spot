@@ -1,16 +1,22 @@
 {
   "pages": {
-    "/movie/movies-list/page": [
+    "/admin/movie/movies-admin/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/movie/movies-list/page.css",
-      "static/chunks/app/movie/movies-list/page.js"
+      "static/css/app/admin/movie/movies-admin/page.css",
+      "static/chunks/app/admin/movie/movies-admin/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
+    ],
+    "/movie/movies-list/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/movie/movies-list/page.css",
+      "static/chunks/app/movie/movies-list/page.js"
     ]
   }
 }

@@ -1,3 +1,4 @@
 {
+  "/admin/movie/movies-admin/page": "app/admin/movie/movies-admin/page.js",
   "/movie/movies-list/page": "app/movie/movies-list/page.js"
 }

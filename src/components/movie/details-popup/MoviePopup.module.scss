@@ -1,22 +1,15 @@
 @import "../../../styles/Fonts.module.scss";
+@import "../../../styles/Mixins.module.scss";
 @import "../../../styles/Variables.module.scss";
-@import "../../../styles/Fonts.module.scss";
 
 .popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: absolute;
     z-index: 1000;
 }
 
 .popup-content {
+    @include sizing-and-background(300px, 100%, $background-color-black);
     color: $text-color-white;
-    background-color: $background-color-black;
     padding: 20px;
     border-radius: 5px;
-    width: 300px;
-    position: absolute;
 }
