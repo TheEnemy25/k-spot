@@ -2,7 +2,8 @@ import { useState } from "react";
 
 function useEntityManager<T>(
   deleteService: (id: string) => Promise<void>,
-  initialEntities: T[]
+  initialEntities: T[],
+  onOpenConfirmDeleteModal: (selectedIds: string[]) => void // New callback
 ) {
   const [selectedEntities, setSelectedEntities] = useState<string[]>(
     initialEntities.map((entity) => entity.id)
@@ -22,25 +23,8 @@ function useEntityManager<T>(
   };
 
   const handleDeleteSelectedEntities = async (entities: T[]) => {
-    const confirmed = window.confirm(
-      "Are you sure you want to delete selected items?"
-    );
-    if (confirmed) {
-      try {
-        await Promise.all(
-          selectedEntities.map((entityId) => deleteService(entityId))
-        );
-        return entities.filter(
-          (entity) => !selectedEntities.includes(entity.id)
-        );
-      } catch (error) {
-        console.error("Error deleting selected items:", error);
-        return entities;
-      } finally {
-        setSelectedEntities([]);
-      }
-    }
-    return entities;
+    // Open the custom confirmation modal instead of using window.confirm
+    onOpenConfirmDeleteModal(selectedEntities);
   };
 
   return {

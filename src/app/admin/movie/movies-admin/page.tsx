@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import React, { useState, useEffect } from "react";
 import Movie from "../../../../api-client/models/movie-models/Movie";
@@ -8,11 +8,15 @@ import { FaTrash, FaInfo } from "react-icons/fa6";
 import Image from "next/image";
 import ActionButton from "../../../../components/action-button/ActionButton";
 import useEntityManager from "../../../../hooks/useEntityManager";
+import ImageModal from "../../../../components/modal-windows/ImageModal";
+import ConfirmDeleteModal from "./ConfirmDeleteModal";
 
 function MoviesAdminPage() {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [showCheckboxes, setShowCheckboxes] = useState(false);
   const [fullscreenImageUrl, setFullscreenImageUrl] = useState<string | null>(null);
+  const [showConfirmDelete, setShowConfirmDelete] = useState(false);
+  const [movieToDelete, setMovieToDelete] = useState<string | null>(null);
 
   useEffect(() => {
     async function fetchMovies() {
@@ -37,8 +41,18 @@ function MoviesAdminPage() {
   };
 
   const handleDeleteSelectedMovies = async () => {
-    const updatedMovies = await handleDeleteSelectedEntities(movies);
-    setMovies(updatedMovies);
+    const deleteMovies = await handleDeleteSelectedEntities(movies);
+    setMovies(deleteMovies);
+  };
+
+  const handleDeleteMovie = async (id: string) => {
+    try {
+      await MovieService.deleteMovie(id);
+      setMovies((prevMovies) => prevMovies.filter((m) => m.id !== id));
+      setShowConfirmDelete(false);
+    } catch (error) {
+      console.error("Error deleting movie:", error);
+    }
   };
 
   return (
@@ -102,25 +116,6 @@ function MoviesAdminPage() {
                 <td className="movies-admin__table-cell">{movie.description}</td>
                 <td className="movies-admin__table-cell">
                   <div className="movies-admin__image-center">
-                    {fullscreenImageUrl && (
-                      <div
-                        className="movies-admin__large-image"
-                        style={{ display: "flex" }}
-                        onClick={() => setFullscreenImageUrl(null)}
-                      >
-                        <Image
-                          key={fullscreenImageUrl}
-                          src={fullscreenImageUrl}
-                          alt="Fullscreen Movie"
-                          className="movies-admin__fullscreen-image"
-                          layout="fill"
-                          loading="eager"
-                          objectFit="cover"
-                          priority
-                          unoptimized
-                        />
-                      </div>
-                    )}
                     <Image
                       src={movie.imageLink}
                       alt={movie.title}
@@ -138,16 +133,9 @@ function MoviesAdminPage() {
                 </td>
                 <td className="movies-admin__table-cell">
                   <ActionButton
-                    onClick={async () => {
-                      const confirmed = window.confirm("Are you sure you want to delete this movie?");
-                      if (confirmed) {
-                        try {
-                          await MovieService.deleteMovie(movie.id);
-                          setMovies((prevMovies) => prevMovies.filter((m) => m.id !== movie.id));
-                        } catch (error) {
-                          console.error("Error deleting movie:", error);
-                        }
-                      }
+                    onClick={() => {
+                      setMovieToDelete(movie.id);
+                      setShowConfirmDelete(true);
                     }}
                     className="movies-admin__action-button--delete"
                   >
@@ -165,6 +153,19 @@ function MoviesAdminPage() {
             ))}
           </tbody>
         </table>
+
+        <ImageModal imageUrl={fullscreenImageUrl} onClose={() => setFullscreenImageUrl(null)} />
+
+        {showConfirmDelete && (
+          <ConfirmDeleteModal
+            onClose={() => setShowConfirmDelete(false)}
+            onConfirm={() => {
+              if (movieToDelete !== null) {
+                handleDeleteMovie(movieToDelete);
+              }
+            }}
+          />
+        )}
       </section>
     </>
   );
