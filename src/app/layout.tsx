@@ -12,7 +12,7 @@ export default function RootLayout({ children, }: { children: React.ReactNode; }
   return (
     <html lang="en">
       <body>
-        <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh", backgroundColor: "rgba(0, 0, 0, 0.85)" }}>
+        <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh", backgroundColor: "rgba(0, 0, 0, 0.9)" }}>
           <Header />
           <SupportPanel />
           <main className="wrapper" style={{ flex: 1 }}>

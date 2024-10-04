@@ -1,3 +1,88 @@
 @import "../../../styles/Fonts.module.scss";
 @import "../../../styles/Mixins.module.scss";
 @import "../../../styles/Variables.module.scss";
+
+.movie-page {
+    padding: 10px 0;
+
+    &__trailer {
+        margin: 0 0 50px 0;
+
+        &-video {
+            width: 100%;
+            height: 700px;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: row;
+
+        &-image {
+            position: relative;
+            width: 350px;
+            height: 500px;
+            display: flex;
+
+            &-poster {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 8px;
+            }
+        }
+
+        .movie-page__content-info {
+            margin: 0 0 0 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            font-size: 16px;
+            color: white;
+            font-family: $Ubuntu-Regular;
+
+            .movie-page__info-title {
+                font-size: 50px;
+                color: white;
+                font-family: $Noto-Sans-Bold;
+            }
+
+            .movie-page__info-details {
+                display: grid;
+                grid-template-columns: auto auto;
+                gap: 20px 60px;
+                line-height: 24px;
+
+                .label {
+                    word-break: break-all;
+                    text-align: left;
+                    max-width: 500px;
+                }
+
+                .value {
+                    word-break: break-all;
+                    text-align: left;
+                    max-width: 500px;
+                }
+            }
+
+
+        }
+    }
+}
+
+.movie-page__info-description {
+    font-size: 20px;
+    color: white;
+    font-family: $Noto-Sans-Bold;
+    margin: 20px 0;
+
+    .movie-page__info-description-p {
+        font-size: 16px;
+        font-family: $Ubuntu-Regular;
+        margin-top: 10px;
+        word-break: break-all;
+        // max-width: 800px;
+        line-height: 24px;
+    }
+}
