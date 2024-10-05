@@ -865,133 +865,75 @@ video {
   color: #00BFFF;
 }
 
-.actors-admin-page {
-  padding: 0 5%;
-}
-.actors-admin-page .actors-heading {
-  font-size: 40px;
-  font-family: "Noto Sans", sans-serif;
-  color: white;
-  margin-bottom: 10px;
-}
-.actors-admin-page .actors-table {
-  border-collapse: separate;
-  min-width: 90%;
-  max-width: 100%;
-  table-layout: fixed;
-  overflow-x: auto;
-  background-color: black;
-  margin: 0 auto;
-}
-.actors-admin-page .actors-table td,
-.actors-admin-page .actors-table th {
-  border: 1.5px solid white;
-  padding: 8px;
-  font-family: "Ubuntu", sans-serif;
-  overflow: hidden;
-  white-space: nowrap;
-  color: white;
+.actors-admin__title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
   text-align: center;
-  vertical-align: middle;
+  color: #333;
 }
-.actors-admin-page .actors-table th {
-  resize: horizontal;
+.actors-admin__buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
 }
-.actors-admin-page .actors-table th::-webkit-resizer,
-.actors-admin-page .actors-table td::-webkit-resizer {
-  display: none;
+.actors-admin__buttons > *:not(:last-child) {
+  margin-right: 1rem;
 }
-.actors-admin-page .actors-table tr:first-child th:first-child {
-  border-top-left-radius: 10px;
-}
-.actors-admin-page .actors-table tr:first-child th:last-child {
-  border-top-right-radius: 10px;
-}
-.actors-admin-page .actors-table td {
-  max-width: 100px;
-  text-overflow: ellipsis;
-  position: relative;
-}
-.actors-admin-page .actors-table td .delete-action-button {
-  padding: auto;
-  border-radius: 5px;
-  border: none;
-  padding: 8px;
-  cursor: pointer;
-  background-color: black;
-  transition: background-color 0.4s ease;
-  color: white;
-}
-.actors-admin-page .actors-table td .delete-action-button:hover {
-  background-color: #ec2c2c;
-}
-.actors-admin-page .actors-table td .details-action-button {
-  padding: auto;
-  border-radius: 5px;
-  border: none;
-  padding: 8px;
-  cursor: pointer;
-  background-color: black;
-  transition: background-color 0.4s ease;
-  color: white;
-  margin-left: 10px;
-}
-.actors-admin-page .actors-table td .details-action-button:hover {
-  background-color: #00BFFF;
-}
-.actors-admin-page .actors-table td .actor-image {
-  width: 25px;
-  height: 25px;
-  object-fit: cover;
-  border-radius: 50%;
-}
-.actors-admin-page .actors-table td .enlarged-image {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 999;
-  background-color: white;
-  padding: 2px;
-  display: none;
-}
-.actors-admin-page .actors-table td .enlarged-image img {
-  max-width: 500px;
-  max-height: 500px;
-  object-fit: cover;
-}
-.actors-admin-page .button {
-  padding: 10px 20px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  color: white;
-  font-family: "Noto Sans", sans-serif;
-  transition: background-color 0.3s ease;
-  margin-right: 10px;
-}
-.actors-admin-page .select-actor-button {
+.actors-admin__buttons .actors-admin__select-button,
+.actors-admin__buttons .actors-admin__create-button,
+.actors-admin__buttons .actors-admin__select-delete-button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
   background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
-.actors-admin-page .select-actor-button:hover {
+.actors-admin__buttons .actors-admin__select-button:hover,
+.actors-admin__buttons .actors-admin__create-button:hover,
+.actors-admin__buttons .actors-admin__select-delete-button:hover {
   background-color: #0056b3;
 }
-.actors-admin-page .create-actor-button {
-  background-color: #32CD32;
+.actors-admin__buttons .actors-admin__select-delete-button {
+  background-color: #dc3545;
 }
-.actors-admin-page .create-actor-button:hover {
-  background-color: #228b22;
+.actors-admin__buttons .actors-admin__select-delete-button:hover {
+  background-color: #c82333;
 }
-.actors-admin-page .delete-selected-actor-button {
-  background-color: #ec2c2c;
+.actors-admin__table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  background-color: #f9f9f9;
 }
-.actors-admin-page .delete-selected-actor-button:hover {
-  background-color: #b70000;
+.actors-admin__table-row:nth-child(even) {
+  background-color: #f2f2f2;
 }
-.actors-admin-page .select-actor-button,
-.actors-admin-page .create-actor-button,
-.actors-admin-page .delete-selected-actor-button {
-  margin-bottom: 20px;
+.actors-admin__table-header {
+  padding: 0.75rem;
+  text-align: left;
+  font-weight: bold;
+  background-color: #007bff;
+  color: white;
+  border: 1px solid #ddd;
+}
+.actors-admin__table-cell {
+  padding: 0.75rem;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+.actors-admin__table-cell.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.actors-admin__table-cell.actions .actors-admin__action-button--delete {
+  margin-right: 0.5rem;
+}
+.actors-admin__table-cell input[type=checkbox] {
+  margin-right: 0.5rem;
 }
 
 .movies-admin__title {

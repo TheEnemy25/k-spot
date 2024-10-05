@@ -15,7 +15,7 @@ const ConfirmDeleteSelectedModal: React.FC<ConfirmDeleteSelectedModalProps> = ({
                 <p className={styles.modalMessage}>Ви впевнені, що хочете видалити {count} фільмів?</p>
                 <div className={styles.modalActions}>
                     <button className={styles.modalButton} onClick={onClose}>Скасувати</button>
-                    <button className={`${styles.modalButton}`} onClick={onConfirm}>Видалити</button>
+                    <button className={styles.modalButton} onClick={onConfirm}>Видалити</button>
                 </div>
             </div>
         </div>

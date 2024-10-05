@@ -3,56 +3,61 @@
 import React, { useState, useEffect } from "react";
 import Movie from "../../../../api-client/models/movie-models/Movie";
 import MovieService from "../../../../api-client/service/MovieService";
-import "./MoviesAdminPage.module.scss";
 import { FaTrash, FaInfo } from "react-icons/fa6";
 import Image from "next/image";
 import ActionButton from "../../../../components/action-button/ActionButton";
-import useEntityManager from "../../../../hooks/useEntityManager";
+import useSelectableEntities from "../../../../hooks/useSelectableEntities";
 import ImageModal from "../../../../components/modal-windows/ImageModal";
 import ConfirmDeleteModal from "./ConfirmDeleteModal";
+import "./MoviesAdminPage.module.scss";
 
 function MoviesAdminPage() {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [showCheckboxes, setShowCheckboxes] = useState(false);
   const [fullscreenImageUrl, setFullscreenImageUrl] = useState<string | null>(null);
-  const [showConfirmDelete, setShowConfirmDelete] = useState(false);
-  const [movieToDelete, setMovieToDelete] = useState<string | null>(null);
+  const [showSingleConfirmDelete, setShowSingleConfirmDelete] = useState(false);
+  const [entityToDelete, setEntityToDelete] = useState<string | null>(null);
 
   useEffect(() => {
-    async function fetchMovies() {
+    const fetchMovies = async () => {
       try {
         const moviesData = await MovieService.getMovies();
         setMovies(moviesData);
       } catch (error) {
         console.error("Error fetching movies:", error);
       }
-    }
+    };
 
     fetchMovies();
   }, []);
 
-  const { selectedEntities, handleCheckboxChange, handleDeleteSelectedEntities } = useEntityManager(
-    MovieService.deleteMovie,
-    movies
-  );
+  const {
+    selectedEntities,
+    handleCheckboxChange,
+    handleSingleDelete,
+    handleDeleteSelectedEntities,
+    resetSelectedEntities,
+    toggleDeleteConfirmation,
+    showConfirmDelete,
+    entitiesToDelete,
+  } = useSelectableEntities(MovieService.deleteMovie, movies, setMovies);
+
+  const toggleCheckboxes = () => {
+    setShowCheckboxes((prev) => {
+      if (!prev) {
+        resetSelectedEntities();
+      }
+      return !prev;
+    });
+  };
 
   const handleOpenFullscreenImage = (imageUrl: string) => {
     setFullscreenImageUrl(imageUrl);
   };
 
-  const handleDeleteSelectedMovies = async () => {
-    const deleteMovies = await handleDeleteSelectedEntities(movies);
-    setMovies(deleteMovies);
-  };
-
-  const handleDeleteMovie = async (id: string) => {
-    try {
-      await MovieService.deleteMovie(id);
-      setMovies((prevMovies) => prevMovies.filter((m) => m.id !== id));
-      setShowConfirmDelete(false);
-    } catch (error) {
-      console.error("Error deleting movie:", error);
-    }
+  const handleSingleDeleteWithConfirmation = (movieId: string) => {
+    setEntityToDelete(movieId);
+    setShowSingleConfirmDelete(true);
   };
 
   return (
@@ -61,22 +66,16 @@ function MoviesAdminPage() {
         <h1 className="movies-admin__title">Movies List</h1>
 
         <div className="movies-admin__buttons">
-          <ActionButton
-            onClick={() => setShowCheckboxes(!showCheckboxes)}
-            className="movies-admin__select-button"
-          >
+          <ActionButton onClick={toggleCheckboxes} className="movies-admin__select-button">
             {showCheckboxes ? "Hide Checkboxes" : "Select Movies"}
           </ActionButton>
-          <ActionButton
-            href="/movie-pages/create/MovieFormPage"
-            className="movies-admin__create-button"
-          >
+          <ActionButton href="/movie-pages/create/MovieFormPage" className="movies-admin__create-button">
             Create New Movie
           </ActionButton>
 
           {showCheckboxes && selectedEntities.length > 0 && (
             <ActionButton
-              onClick={handleDeleteSelectedMovies}
+              onClick={toggleDeleteConfirmation}
               className="movies-admin__select-delete-button"
             >
               Delete Selected Movies
@@ -106,7 +105,7 @@ function MoviesAdminPage() {
                     <input
                       type="checkbox"
                       checked={selectedEntities.includes(movie.id)}
-                      onChange={(e) => handleCheckboxChange(e, movie.id)}
+                      onChange={() => handleCheckboxChange(movie.id)}
                     />
                   )}
                   {!showCheckboxes && index + 1}
@@ -133,19 +132,13 @@ function MoviesAdminPage() {
                 </td>
                 <td className="movies-admin__table-cell">
                   <ActionButton
-                    onClick={() => {
-                      setMovieToDelete(movie.id);
-                      setShowConfirmDelete(true);
-                    }}
+                    onClick={() => handleSingleDeleteWithConfirmation(movie.id)}
                     className="movies-admin__action-button--delete"
                   >
                     <FaTrash />
                   </ActionButton>
 
-                  <ActionButton
-                    href={`/movie/${movie.id}`}
-                    className="movies-admin__action-button--details"
-                  >
+                  <ActionButton href={`/movie/${movie.id}`} className="movies-admin__action-button--details">
                     <FaInfo />
                   </ActionButton>
                 </td>
@@ -158,12 +151,16 @@ function MoviesAdminPage() {
 
         {showConfirmDelete && (
           <ConfirmDeleteModal
-            onClose={() => setShowConfirmDelete(false)}
-            onConfirm={() => {
-              if (movieToDelete !== null) {
-                handleDeleteMovie(movieToDelete);
-              }
-            }}
+            onClose={resetSelectedEntities}
+            onConfirm={handleDeleteSelectedEntities}
+            count={entitiesToDelete.length}
+          />
+        )}
+
+        {showSingleConfirmDelete && (
+          <ConfirmDeleteModal
+            onClose={() => setShowSingleConfirmDelete(false)}
+            onConfirm={() => handleSingleDelete(entityToDelete!)}
           />
         )}
       </section>

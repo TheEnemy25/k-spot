@@ -1,0 +1,89 @@
+@import "../../../../styles/Fonts.module.scss";
+@import "../../../../styles/Mixins.module.scss";
+@import "../../../../styles/Variables.module.scss";
+
+.actors-admin {
+  &__title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #333;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+
+    &>*:not(:last-child) {
+      margin-right: 1rem;
+    }
+
+    .actors-admin__select-button,
+    .actors-admin__create-button,
+    .actors-admin__select-delete-button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+
+    .actors-admin__select-delete-button {
+      background-color: #dc3545;
+
+      &:hover {
+        background-color: #c82333;
+      }
+    }
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+
+    &-row {
+      &:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+    }
+
+    &-header {
+      padding: 0.75rem;
+      text-align: left;
+      font-weight: bold;
+      background-color: #007bff;
+      color: white;
+      border: 1px solid #ddd;
+    }
+
+    &-cell {
+      padding: 0.75rem;
+      text-align: left;
+      border: 1px solid #ddd;
+
+      &.actions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .actors-admin__action-button--delete {
+          margin-right: 0.5rem;
+        }
+      }
+
+      input[type="checkbox"] {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}
