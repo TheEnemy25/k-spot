@@ -68,52 +68,54 @@ const MoviesPage: React.FC = () => {
     };
 
     return (
-        <section className="movies">
-            <h1 className="movies__title">Movies List</h1>
-            <div className="movies__list">
-                {movies.map((movie) => (
-                    <article className="movies__item" key={movie.id}>
-                        <div className="movies__icons">
+        <>
+            <section className="movies">
+                <h1 className="movies__title">Movies List</h1>
+                <div className="movies__list">
+                    {movies.map((movie) => (
+                        <article className="movies__item" key={movie.id}>
+                            <div className="movies__icons">
+                                <Image
+                                    className="movies__age-icon"
+                                    src={getAgeIcon(movie.ageRestriction)}
+                                    alt={`${movie.ageRestriction}`}
+                                    width={30}
+                                    height={30}
+                                />
+                                <Image
+                                    src={Info}
+                                    className="movies__info-icon"
+                                    alt="Info"
+                                    width={30}
+                                    height={30}
+                                    onMouseEnter={(event) => handleMouseEnter(movie, event)}
+                                    onMouseLeave={handleMouseLeave}
+                                />
+                            </div>
                             <Image
-                                className="movies__age-icon"
-                                src={getAgeIcon(movie.ageRestriction)}
-                                alt={`${movie.ageRestriction}`}
-                                width={30}
-                                height={30}
+                                className="movies__poster"
+                                src={movie.imageLink}
+                                alt={movie.title}
+                                layout="fill"
                             />
-                            <Image
-                                src={Info}
-                                className="movies__info-icon"
-                                alt="Info"
-                                width={30}
-                                height={30}
-                                onMouseEnter={(event) => handleMouseEnter(movie, event)}
-                                onMouseLeave={handleMouseLeave}
-                            />
-                        </div>
-                        <Image
-                            className="movies__poster"
-                            src={movie.imageLink}
-                            alt={movie.title}
-                            layout="fill"
-                        />
-                        <div className="movies__content">
-                            <Link href={`/movie/${movie.id}`} className="movies__content-title">
-                                {movie.title}
-                            </Link>
-                        </div>
-                    </article>
-                ))}
-            </div>
-            {hoveredMovie && isPopupVisible && (
-                <MovieDetailsPopup
-                    movie={hoveredMovie}
-                    position={popupPosition}
-                    onMouseEnter={handlePopupMouseEnter}
-                    onMouseLeave={handlePopupMouseLeave}
-                />
-            )}
-        </section>
+                            <div className="movies__content">
+                                <Link href={`/movie/${movie.id}`} className="movies__content-title">
+                                    {movie.title}
+                                </Link>
+                            </div>
+                        </article>
+                    ))}
+                </div>
+                {hoveredMovie && isPopupVisible && (
+                    <MovieDetailsPopup
+                        movie={hoveredMovie}
+                        position={popupPosition}
+                        onMouseEnter={handlePopupMouseEnter}
+                        onMouseLeave={handlePopupMouseLeave}
+                    />
+                )}
+            </section>
+        </>
     );
 };
 

@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Actor from "../../../../api-client/models/actor-models/Actor";
 import ActorService from "../../../../api-client/service/ActorService";
 import { FaTrash, FaInfo } from "react-icons/fa6";
-import ActionButton from "../../../../components/action-button/ActionButton";
+import ActionButton from "../../../../components/buttons/action-button/ActionButton";
 import useSelectableEntities from "../../../../hooks/useSelectableEntities";
 import ConfirmDeleteSelectedModal from "../../movie/movies-admin/ConfirmDeleteSelectedModal";
 import "./ActorsAdminPage.module.scss";

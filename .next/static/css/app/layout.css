@@ -957,8 +957,8 @@ video {
   border-top-right-radius: 10px;
 }
 .movies-admin__table-cell, .movies-admin__table-header {
-  border: 1.5px solid #ddd;
-  padding: 8px;
+  border: 1.5px solid white;
+  padding: 10px 5px;
   text-align: center;
   font-family: "Ubuntu", sans-serif;
   overflow: hidden;
@@ -976,6 +976,18 @@ video {
   max-width: 100px;
   text-overflow: ellipsis;
 }
+.movies-admin__table-cell .movies-admin__image-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.movies-admin__table-cell .movies-admin__image-center .movies-admin__image {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 50%;
+  cursor: pointer;
+}
 .movies-admin__table-cell .movies-admin__action-button--delete {
   padding: auto;
   border-radius: 5px;
@@ -987,7 +999,7 @@ video {
   color: white;
 }
 .movies-admin__table-cell .movies-admin__action-button--delete:hover {
-  background-color: #ec2c2c;
+  background-color: #ff5f1f;
 }
 .movies-admin__table-cell .movies-admin__action-button--details {
   padding: auto;
@@ -1002,48 +1014,6 @@ video {
 }
 .movies-admin__table-cell .movies-admin__action-button--details:hover {
   background-color: #00BFFF;
-}
-.movies-admin__table-cell .movies-admin__image-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.movies-admin__table-cell .movies-admin__image-center .movies-admin__image {
-  width: 30px;
-  height: 30px;
-  object-fit: cover;
-  border-radius: 50%;
-  cursor: pointer;
-}
-.movies-admin .movies-admin__buttons .movies-admin__select-button {
-  background-color: #007bff;
-}
-.movies-admin .movies-admin__buttons .movies-admin__select-button:hover {
-  background-color: #0056b3;
-  opacity: 0.8;
-}
-.movies-admin .movies-admin__buttons .movies-admin__create-button {
-  background-color: #25ce2f;
-}
-.movies-admin .movies-admin__buttons .movies-admin__create-button:hover {
-  opacity: 0.8;
-}
-.movies-admin .movies-admin__buttons .movies-admin__select-delete-button {
-  background-color: #ff5f1f;
-}
-.movies-admin .movies-admin__buttons .movies-admin__select-delete-button:hover {
-  opacity: 0.8;
-}
-.movies-admin .movies-admin__buttons .movies-admin__select-button,
-.movies-admin .movies-admin__buttons .movies-admin__create-button,
-.movies-admin .movies-admin__buttons .movies-admin__select-delete-button {
-  margin-bottom: 20px;
-  margin-right: 15px;
-  padding: 10px 20px;
-  border-radius: 8px;
-  color: white;
-  font-family: "Noto Sans", sans-serif;
-  transition: background-color 0.3s ease, opacity 0.3s ease;
 }
 
 .ss {
@@ -1159,8 +1129,8 @@ video {
   border-top-right-radius: 10px;
 }
 .movies-admin__table-cell, .movies-admin__table-header {
-  border: 1.5px solid #ddd;
-  padding: 8px;
+  border: 1.5px solid white;
+  padding: 10px 5px;
   text-align: center;
   font-family: "Ubuntu", sans-serif;
   overflow: hidden;
@@ -1178,6 +1148,18 @@ video {
   max-width: 100px;
   text-overflow: ellipsis;
 }
+.movies-admin__table-cell .movies-admin__image-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.movies-admin__table-cell .movies-admin__image-center .movies-admin__image {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 50%;
+  cursor: pointer;
+}
 .movies-admin__table-cell .movies-admin__action-button--delete {
   padding: auto;
   border-radius: 5px;
@@ -1189,7 +1171,7 @@ video {
   color: white;
 }
 .movies-admin__table-cell .movies-admin__action-button--delete:hover {
-  background-color: #ec2c2c;
+  background-color: #ff5f1f;
 }
 .movies-admin__table-cell .movies-admin__action-button--details {
   padding: auto;
@@ -1204,48 +1186,6 @@ video {
 }
 .movies-admin__table-cell .movies-admin__action-button--details:hover {
   background-color: #00BFFF;
-}
-.movies-admin__table-cell .movies-admin__image-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.movies-admin__table-cell .movies-admin__image-center .movies-admin__image {
-  width: 30px;
-  height: 30px;
-  object-fit: cover;
-  border-radius: 50%;
-  cursor: pointer;
-}
-.movies-admin .movies-admin__buttons .movies-admin__select-button {
-  background-color: #007bff;
-}
-.movies-admin .movies-admin__buttons .movies-admin__select-button:hover {
-  background-color: #0056b3;
-  opacity: 0.8;
-}
-.movies-admin .movies-admin__buttons .movies-admin__create-button {
-  background-color: #25ce2f;
-}
-.movies-admin .movies-admin__buttons .movies-admin__create-button:hover {
-  opacity: 0.8;
-}
-.movies-admin .movies-admin__buttons .movies-admin__select-delete-button {
-  background-color: #ff5f1f;
-}
-.movies-admin .movies-admin__buttons .movies-admin__select-delete-button:hover {
-  opacity: 0.8;
-}
-.movies-admin .movies-admin__buttons .movies-admin__select-button,
-.movies-admin .movies-admin__buttons .movies-admin__create-button,
-.movies-admin .movies-admin__buttons .movies-admin__select-delete-button {
-  margin-bottom: 20px;
-  margin-right: 15px;
-  padding: 10px 20px;
-  border-radius: 8px;
-  color: white;
-  font-family: "Noto Sans", sans-serif;
-  transition: background-color 0.3s ease, opacity 0.3s ease;
 }
 
 .movie-page {
@@ -1352,7 +1292,7 @@ body {
   height: 100%;
   flex: 1 1 auto;
   margin-top: 80px;
-  padding: 0 100px;
+  padding: 0 50px 0 100px;
 }
 
 html,
@@ -1495,7 +1435,7 @@ table {
 
 ::-webkit-scrollbar-thumb {
   background-color: #333;
-  border-radius: 8px;
+  border-radius: 5px;
   border: 1px solid #000;
 }
 

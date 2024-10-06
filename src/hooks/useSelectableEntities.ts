@@ -4,24 +4,25 @@ interface EntityWithId {
   id: string;
 }
 
-function useSelectableEntities<T extends EntityWithId>(
+function useEntitySelection<T extends EntityWithId>(
   deleteService: (id: string) => Promise<void>,
   entities: T[],
   setEntities: React.Dispatch<React.SetStateAction<T[]>>
 ) {
-  const [selectedEntities, setSelectedEntities] = useState<string[]>([]);
-  const [showConfirmDelete, setShowConfirmDelete] = useState(false);
-  const [entitiesToDelete, setEntitiesToDelete] = useState<string[]>([]);
+  const [selectedItems, setSelectedItems] = useState<string[]>([]);
+  const [showBulkDeleteConfirmation, setShowBulkDeleteConfirmation] =
+    useState(false);
+  const [itemsToDelete, setItemsToDelete] = useState<string[]>([]);
 
-  const handleCheckboxChange = (entityId: string) => {
-    setSelectedEntities((prevSelected) =>
-      prevSelected.includes(entityId)
-        ? prevSelected.filter((id) => id !== entityId)
-        : [...prevSelected, entityId]
+  const toggleItemSelection = (entityId: string) => {
+    setSelectedItems((prev) =>
+      prev.includes(entityId)
+        ? prev.filter((id) => id !== entityId)
+        : [...prev, entityId]
     );
   };
 
-  const handleSingleDelete = async (entityId: string) => {
+  const deleteSingleItem = async (entityId: string) => {
     try {
       await deleteService(entityId);
       setEntities((prevEntities) =>
@@ -32,43 +33,41 @@ function useSelectableEntities<T extends EntityWithId>(
     }
   };
 
-  const handleDeleteSelectedEntities = async () => {
+  const deleteSelectedItems = async () => {
     try {
-      await Promise.all(entitiesToDelete.map((id) => deleteService(id)));
-
+      await Promise.all(itemsToDelete.map((id) => deleteService(id)));
       setEntities((prevEntities) =>
-        prevEntities.filter((entity) => !entitiesToDelete.includes(entity.id))
+        prevEntities.filter((entity) => !itemsToDelete.includes(entity.id))
       );
-
-      resetSelectedEntities();
+      resetSelections();
     } catch (error) {
       console.error("Error deleting entities:", error);
     }
   };
 
-  const resetSelectedEntities = () => {
-    setSelectedEntities([]);
-    setEntitiesToDelete([]);
-    setShowConfirmDelete(false);
+  const resetSelections = () => {
+    setSelectedItems([]);
+    setItemsToDelete([]);
+    setShowBulkDeleteConfirmation(false);
   };
 
-  const toggleDeleteConfirmation = () => {
-    if (selectedEntities.length > 0) {
-      setEntitiesToDelete(selectedEntities);
-      setShowConfirmDelete(true);
+  const confirmDeleteSelected = () => {
+    if (selectedItems.length > 0) {
+      setItemsToDelete(selectedItems);
+      setShowBulkDeleteConfirmation(true);
     }
   };
 
   return {
-    selectedEntities,
-    handleCheckboxChange,
-    handleSingleDelete,
-    handleDeleteSelectedEntities,
-    resetSelectedEntities,
-    toggleDeleteConfirmation,
-    showConfirmDelete,
-    entitiesToDelete,
+    selectedItems,
+    toggleItemSelection,
+    deleteSingleItem,
+    deleteSelectedItems,
+    resetSelections,
+    confirmDeleteSelected,
+    showBulkDeleteConfirmation,
+    itemsToDelete,
   };
 }
 
-export default useSelectableEntities;
+export default useEntitySelection;

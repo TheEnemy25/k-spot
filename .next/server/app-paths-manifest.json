@@ -1,5 +1,4 @@
 {
-  "/movie/movies-list/page": "app/movie/movies-list/page.js",
   "/admin/movie/movies-admin/page": "app/admin/movie/movies-admin/page.js",
-  "/movie/[movieId]/page": "app/movie/[movieId]/page.js"
+  "/admin/movie/create/page": "app/admin/movie/create/page.js"
 }
