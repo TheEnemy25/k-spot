@@ -23,9 +23,7 @@
 @import "../components/movie/details-popup/MoviePopup.module.scss";
 @import "../app//admin/movie/movies-admin/MoviesAdminPage.module.scss";
 @import "../app/movie/[movieId]/MoviePage.module.scss";
-
-
-
+@import "../app/admin/movie/create/MovieFormPage.module.scss";
 
 
 *,
@@ -192,7 +190,7 @@ table {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -200,11 +198,12 @@ table {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #333;
+  background-color: #ff5f1f; //#666
   border-radius: 5px;
   border: 1px solid #000;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #666;
+  // background-color: #666;
+  opacity: 0.9;
 }
