@@ -18,13 +18,27 @@ const MovieDetailsPopup: React.FC<MovieDetailsPopupProps> = ({ movie, position, 
         onMouseLeave={onMouseLeave}
     >
         <div className="popup-content">
-            <h2>{movie.title}</h2>
-            <p>Age Restriction: {movie.ageRestriction}</p>
-            <p>Description: {movie.description}</p>
-            <p>Rating: {movie.rating}</p>
-            <p>Duration: {movie.duration}</p>
-            <p>Release Date: {new Date(movie.releaseDate).toLocaleDateString()}</p>
-            <Link href={`/movie/${movie.id}`}>View Details</Link>
+
+            <div>
+                <Link href={`/movie/${movie.id}`} className='popup-content__title'>{movie.title}</Link>
+            </div>
+
+            <p className="popup-content__description">Description: {movie.description}</p>
+
+            <div className='popup-content__info-details'>
+                <p>Age Restriction:</p>
+                <p>+{movie.ageRestriction}</p>
+
+                <p>Rating:</p>
+                <p>{movie.rating}</p>
+
+                <p>Duration:</p>
+                <p>{movie.duration}</p>
+
+                <p>Release Date:</p>
+                <p>{new Date(movie.releaseDate).toLocaleDateString()}</p>
+            </div>
+
         </div>
     </div>
 );

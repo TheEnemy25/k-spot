@@ -1,1 +1,5 @@
-{}
+{
+  "/movie/movies-list/page": "app/movie/movies-list/page.js",
+  "/movie/[movieId]/page": "app/movie/[movieId]/page.js",
+  "/page": "app/page.js"
+}

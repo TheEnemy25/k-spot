@@ -22,6 +22,7 @@ const AdminButtons: React.FC<AdminButtonsProps> = ({
             <ActionButton onClick={toggleCheckboxes} className={styles['admin-buttons__select-button']}>
                 {showCheckboxes ? "Hide Checkboxes" : "Select Items"}
             </ActionButton>
+
             <ActionButton href={newItemLink} className={styles['admin-buttons__create-button']}>
                 Create New Item
             </ActionButton>

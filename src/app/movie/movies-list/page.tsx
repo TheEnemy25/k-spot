@@ -10,7 +10,7 @@ import Info from "../../../../public/images/info.png";
 import MovieDetailsPopup from '../../../components/movie/details-popup/MovieDetailsPopup';
 import { getAgeIcon } from '../../../components/ageIcons';
 
-const POPUP_WIDTH = 300;
+const POPUP_WIDTH = 400; //300
 const POPUP_OFFSET = 10;
 const POPUP_HIDE_DELAY = 300;
 

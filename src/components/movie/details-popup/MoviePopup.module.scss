@@ -8,8 +8,42 @@
 }
 
 .popup-content {
-    @include sizing-and-background(300px, 100%, $background-color-black);
+    @include sizing-and-background(400px, 100%, $background-color-black); //300px
     color: $text-color-white;
+    font-family: $Ubuntu-Regular;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    word-break: break-all;
+    line-height: 1.5;
+
+    &__title {
+        display: inline-block;
+        font-size: 20px;
+        color: $primary-color;
+        transition: color 0.3s ease, transform 0.3s ease;
+
+        &:hover {
+            text-decoration: underline;
+            color: lighten($primary-color, 20%);
+            transform: scale(1.1);
+        }
+    }
+
+    &__description {
+        height: 100%;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 5;
+        overflow: hidden;
+    }
+
+    &__info-details {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 20px;
+        text-align: left;
+    }
 }
